@@ -1,0 +1,73 @@
+﻿unit GFonts;
+
+interface
+uses
+  Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
+  Dialogs, OpenGL, DGLUT, Textures,command;
+
+
+type
+  FFont = record
+    x,y,sim,Leg,a: integer;
+ end;
+
+//////----------------****************************************************---------------------------////
+
+var
+  cis:integer;
+  Sim:array[1..196] of string;
+  FontI:array[1..196] of FFont;
+
+//////----------------****************************************************---------------------------////
+
+procedure R3D_To_2D(ClientWidth, ClientHeight:integer);
+procedure R2D_To_3D();
+
+
+implementation
+uses GUI,Resurce;
+
+
+//////----------------****************************************************---------------------------////
+
+procedure Enable_Atest();
+begin
+  glEnable(GL_DEPTH_TEST);
+  glEnable(GL_NORMALIZE);
+  glEnable(GL_COLOR_MATERIAL);
+  glShadeModel(GL_SMOOTH);
+end;
+
+//////----------------****************************************************---------------------------////
+
+procedure Disable_Atest();
+begin
+  glDisable(GL_NORMALIZE);
+  glDisable(GL_COLOR_MATERIAL);
+  glDisable(GL_DEPTH_TEST);
+end;
+
+//////----------------****************************************************---------------------------////
+
+procedure R3D_To_2D(ClientWidth, ClientHeight:integer);
+begin
+  glPushMatrix;
+  glLoadIdentity;
+  glMatrixMode(GL_PROJECTION);
+  glPushMatrix;
+  glLoadIdentity;
+  gluOrtho2D(0,ClientWidth, ClientHeight,0);
+  glMatrixMode(GL_MODELVIEW);
+end;
+
+//////----------------****************************************************---------------------------////
+
+procedure R2D_To_3D();
+begin
+  glMatrixMode(GL_PROJECTION);
+  glPopMatrix;
+  glMatrixMode(GL_MODELVIEW);
+  glPopMatrix;
+end;
+
+end.

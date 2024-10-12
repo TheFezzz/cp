@@ -1,0 +1,85 @@
+﻿unit Unit2;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls, Vcl.ExtCtrls,
+  Vcl.Buttons, Vcl.ComCtrls, Vcl.Menus, Vcl.Imaging.pngimage, shellAPI;
+
+type
+  TForm2 = class(TForm)
+    SpeedButton1: TSpeedButton;
+    ProgressBar1: TProgressBar;
+    Timer1: TTimer;
+    Image1: TImage;
+    SpeedButton2: TSpeedButton;
+    MainMenu1: TMainMenu;
+    N3: TMenuItem;
+    N4: TMenuItem;
+    N5: TMenuItem;
+    procedure FormCreate(Sender: TObject);
+    procedure SpeedButton1Click(Sender: TObject);
+    procedure Timer1Timer(Sender: TObject);
+    procedure SpeedButton2Click(Sender: TObject);
+    procedure N4Click(Sender: TObject);
+    procedure N5Click(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  Form2: TForm2;
+implementation
+{$R *.dfm}
+uses GUI;
+
+
+
+procedure TForm2.FormCreate(Sender: TObject);
+begin
+showcursor(true);
+Image1.Align := alClient;
+Image1.Stretch := True;
+end;
+
+procedure TForm2.N4Click(Sender: TObject);
+begin
+ShellExecute(0, PChar ('Open'), PChar ('spavka2.chm'), nil, nil, SW_SHOW);
+end;
+
+procedure TForm2.N5Click(Sender: TObject);
+begin
+close;
+end;
+
+procedure TForm2.SpeedButton1Click(Sender: TObject);
+begin
+showcursor(false);
+Form1.Show;
+Form2.Hide;
+end;
+
+procedure TForm2.SpeedButton2Click(Sender: TObject);
+begin
+close;
+end;
+
+procedure TForm2.Timer1Timer(Sender: TObject);
+begin
+ProgressBar1.Position:=Progressbar1.Position+20;
+if ProgressBar1.position=100 then
+begin
+Timer1.enabled:=False;
+SpeedButton1.Visible:=true;
+SpeedButton2.Visible:=true;
+ProgressBar1.Visible:=false;
+N3.Visible:=true;
+N4.Visible:=true;
+N5.Visible:=true;
+end;
+end;
+
+end.

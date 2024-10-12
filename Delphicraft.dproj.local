@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BorlandProject>
+	<Transactions>
+    <Transaction>1899.12.30 00:00:00.000.556,=D:\Работы\ОАиП✓\КП\Delphicraft\Unit2.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.199,=D:\Работы\ОАиП✓\КП\Delphicraft\Unit2.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.705,D:\Работы\ОАиП✓\КП\Delphicraft\Unit2.pas=D:\Работы\ОАиП✓\КП\Delphicraft\Menu.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.847,D:\Работы\ОАиП✓\КП\Delphicraft\Menu.pas=</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.670,D:\Работы\ОАиП✓\КП\Delphicraft\MAZEENGINE.dproj=D:\Работы\ОАиП✓\КП\Delphicraft\Delphicraft.dproj</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.705,D:\Работы\ОАиП✓\КП\Delphicraft\Unit2.dfm=D:\Работы\ОАиП✓\КП\Delphicraft\Menu.dfm</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.125,=D:\Работы\ОАиП✓\КП\Delphicraft — копия (2)\Unit2.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.768,D:\Работы\ОАиП✓\КП\Delphicraft\Unit2.pas=</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.pas,E:\Square's ProjEng\Совместная работа\MAZE map creator\Unit1.pas=E:\Square's ProjEng\Совместная работа\MAZE map creator\Gamelavels.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.pas,C:\Users\Соня\Desktop\NEW ENGINE MAZE\Unit1.pas=C:\Users\Соня\Desktop\NEW ENGINE MAZE\GUI.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.pas,C:\Users\Соня\Desktop\NEW ENGINE MAZE\Unit1.pas=C:\Users\Соня\Desktop\NEW ENGINE MAZE\Command.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.dfm,C:\Users\Соня\Desktop\NEW ENGINE MAZE\Unit1.dfm=C:\Users\Соня\Desktop\NEW ENGINE MAZE\GUI.dfm</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.pas,C:\Users\Соня\Desktop\NEW ENGINE MAZE\Unit2.pas=C:\Users\Соня\Desktop\NEW ENGINE MAZE\Resurce.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.351,=D:\Работы\ОАиП\КП\Delphicraft — копия (2)\Unit3.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.bdsproj,C:\Users\Соня\Desktop\NEW ENGINE MAZE\Project1.bdsproj=C:\Users\Соня\Desktop\NEW ENGINE MAZE\MAZEENGINE.bdsproj</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.pas,C:\Users\Соня\Desktop\NEW ENGINE MAZE\Unit1.pas=C:\Users\Соня\Desktop\NEW ENGINE MAZE\Tex.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.pas,C:\Users\Соня\Desktop\NEW ENGINE MAZE\Unit1.pas=C:\Users\Соня\Desktop\NEW ENGINE MAZE\GFonts.pas</Transaction>
+  </Transactions>
+	<ProjectSortOrder AutoSort="0" SortType="0">
+    <File Path="GUI.pas"/>
+    <File Path="GUI.dfm"/>
+    <File Path="Resurce.pas"/>
+    <File Path="Command.pas"/>
+    <File Path="GFonts.pas"/>
+    <File Path="Gamelavels.pas"/>
+    <File Path="Unit2.pas"/>
+    <File Path="Unit2.dfm"/>
+  </ProjectSortOrder>
+</BorlandProject>

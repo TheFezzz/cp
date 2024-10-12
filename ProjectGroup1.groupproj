@@ -1,0 +1,36 @@
+﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+    <PropertyGroup>
+        <ProjectGuid>{A997FF45-C4AC-481A-9AD5-74E081212FBF}</ProjectGuid>
+    </PropertyGroup>
+    <ItemGroup>
+        <Projects Include="Delphicraft.dproj">
+            <Dependencies/>
+        </Projects>
+    </ItemGroup>
+    <ProjectExtensions>
+        <Borland.Personality>Default.Personality.12</Borland.Personality>
+        <Borland.ProjectType/>
+        <BorlandProject>
+            <Default.Personality/>
+        </BorlandProject>
+    </ProjectExtensions>
+    <Target Name="Delphicraft">
+        <MSBuild Projects="Delphicraft.dproj"/>
+    </Target>
+    <Target Name="Delphicraft:Clean">
+        <MSBuild Projects="Delphicraft.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="Delphicraft:Make">
+        <MSBuild Projects="Delphicraft.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="Build">
+        <CallTarget Targets="Delphicraft"/>
+    </Target>
+    <Target Name="Clean">
+        <CallTarget Targets="Delphicraft:Clean"/>
+    </Target>
+    <Target Name="Make">
+        <CallTarget Targets="Delphicraft:Make"/>
+    </Target>
+    <Import Project="$(BDS)\Bin\CodeGear.Group.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Group.Targets')"/>
+</Project>

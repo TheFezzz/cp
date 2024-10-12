@@ -1,0 +1,135 @@
+﻿unit Gamelavels;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
+  Dialogs, OpenGL, DGLUT, Textures,Mesh, command,GFonts,resurce;
+
+
+procedure MainGame(ClientWidth, ClientHeight:integer);
+procedure Menu3(ClientWidth, ClientHeight:integer);
+
+implementation
+uses GUI;
+procedure MainGame(ClientWidth, ClientHeight:integer);
+var I,J,Y:integer;
+CW,CH:integer;
+EN:integer;
+Dir:real;
+begin
+CW:=ClientWidth;
+CH:=ClientHeight;
+  glClearColor(0.1, 0.1, 0.1, 0.0); // цвет фона
+  glClear (GL_COLOR_BUFFER_BIT or GL_DEPTH_BUFFER_BIT); // очистка буфера цвета
+
+  glEnable(GL_DEPTH_TEST);
+  glEnable(GL_NORMALIZE);
+  glEnable(GL_COLOR_MATERIAL);
+  glShadeModel(GL_SMOOTH);
+     Fog();
+
+    {  If (Mass[I,J,Y]>0) and (Check(I+1,J,Y)>0) and
+         (Check(I,J+1,Y)>0) and (Check(I,J,Y+1)>0) and
+         (Check(I,J-1,Y)>0) and (Check(I,J,Y-1)>0) and
+         (Check(I-1,J,Y)>0)  and (abs(dir)<400)    }
+
+ for I := 1 to 127 do
+  for J := 1 to 127 do
+   for Y := 1 to 127 do
+   begin
+      dir:=sqrt(sqr(p.X-size*i+size/2)+sqr(p.Y-size*j+size/2)+sqr(p.z-size*y+size/2));
+
+      If (Mass[I,J,Y]>0) and (abs(dir)<500) then
+          begin
+            if (Mass[I+1,J,Y]>0) and (Mass[I-1,J,Y]>0)and
+                  (Mass[I,J+1,Y]>0) and (Mass[I,J-1,Y]>0) and
+                      (Mass[I,J,Y+1]>0) and (Mass[I,J,Y-1]>0) then
+                      begin
+                    end
+                else begin
+               DrawBox(size*i+size/2, size*j+size/2, size*y+size/2,size/2,Blocks[Mass[I,J,Y]-1]);
+          end;
+         
+      end;
+
+
+
+   end;
+     DrawBox(P.x,p.y,p.z,2000,Sky);
+     
+
+
+
+       glBindTexture(GL_TEXTURE_2D, Ttextobj[0]);
+     
+
+    glpushmatrix();
+    R3D_To_2D(ClientWidth, ClientHeight);
+
+
+    RenderSprite(CW/2,CH/2,25,25,0,Ttextobj[0]);
+
+    RenderSprite(CW/2-240,CH-50,30,30,0,Ttextobj[1]);
+    RenderSprite(CW/2-180,CH-50,30,30,0,Ttextobj[2]);
+    RenderSprite(CW/2-120,CH-50,30,30,0,Ttextobj[3]);
+    RenderSprite(CW/2-60,CH-50,30,30,0,Ttextobj[4]);
+    RenderSprite(CW/2,CH-50,30,30,0,Ttextobj[5]);
+    RenderSprite(CW/2+60,CH-50,30,30,0,Ttextobj[6]);
+    RenderSprite(CW/2+120,CH-50,30,30,0,Ttextobj[7]);
+    RenderSprite(CW/2+180,CH-50,30,30,0,Ttextobj[8]);
+    RenderSprite(CW/2+240,CH-50,30,30,0,Ttextobj[9]);
+    RenderSprite(CW/2+300,CH-50,30,30,0,Ttextobj[10]);
+    
+    RenderSprite(CW/2-240+((MyBlock-1)*60),CH-50,35,35,0,Ttextobj[200]);
+
+    //Symvol_Button('текстовая кнопка так!',15,20,ClientHeight-60,1,1,Pixel[0][0],Pixel[0][1],Pixel[0][2], 5);
+    R2D_To_3D();
+    glpopmatrix();
+    //Disable_Atest();
+  glPopMatrix;
+ {  RenderFlore(10,10,10,Brick);
+   RenderFlore(10,30,10,water);
+   RenderGMSModel(0,0,0,10,TObj,s);  }
+
+
+glPopMatrix;
+
+R3D_To_2D(ClientWidth, ClientHeight);
+
+//RenderSprite (ClientWidth/2, ClientHeight/2,ClientWidth/2, ClientHeight/2,0,ResTex[4]);
+//MenuStay:=SpriteButton(ClientWidth/2+150, ClientHeight/2,120,120,ResTex[6], MenuStay,MenuStay,3);
+//SpriteButton(ClientWidth/2-150, ClientHeight/2,120,120,ResTex[5], 0,0,0);
+////
+//Render_Symvol('fps = '+inttostr(FPS),10,15,25,0,0,255,255,255);
+
+
+
+
+//RenderSprite (-Form1.Left +Point.X+45,-Form1.Top-15  +point.Y+45,50,50,0,Cursor1);
+
+//R2D_To_3D();
+
+end;
+
+procedure Menu3(ClientWidth, ClientHeight:integer);
+var I,J:integer;
+begin
+
+
+
+ { GluLookAt(cam.pos.X,cam.pos.y,cam.pos.z,cam.pos.X+sin((-cam.Phix)/180*PI),
+  cam.pos.y+Cos(-cam.PhiX/180*PI),cam.pos.z+tan(cam.PhiY/180*PI),0,0,1);  }
+
+  glClearColor(0.1, 0.1, 0.1, 0.0); // цвет фона
+  //glClearColor(0.0, 0.48, 0.93, 0.0); // цвет фона
+  glClear (GL_COLOR_BUFFER_BIT or GL_DEPTH_BUFFER_BIT); // очистка буфера цвета
+
+ {  RenderFlore(10,10,10,Brick);
+   RenderFlore(10,30,10,water);
+   RenderGMSModel(0,0,0,10,TObj,s);  }
+glPopMatrix;
+R3D_To_2D(ClientWidth, ClientHeight);
+end;
+
+end.

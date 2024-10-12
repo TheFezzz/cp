@@ -1,0 +1,77 @@
+﻿unit Gamelavels;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
+  Dialogs, OpenGL, DGLUT, Textures,Mesh, command,GFonts,resurce;
+
+
+procedure MainGame(ClientWidth, ClientHeight:integer);
+
+implementation
+uses GUI;
+procedure MainGame(ClientWidth, ClientHeight:integer);
+var I,J,Y:integer;
+CW,CH:integer;
+EN:integer;
+Dir:real;
+begin
+CW:=ClientWidth;
+CH:=ClientHeight;
+  glClearColor(0.1, 0.1, 0.1, 0.0); // цвет фона
+  glClear (GL_COLOR_BUFFER_BIT or GL_DEPTH_BUFFER_BIT); // очистка буфера цвета
+
+  glEnable(GL_DEPTH_TEST);
+  glEnable(GL_NORMALIZE);
+  glEnable(GL_COLOR_MATERIAL);
+  glShadeModel(GL_SMOOTH);
+     Fog();
+
+ for I := 1 to 127 do
+  for J := 1 to 127 do
+   for Y := 1 to 127 do
+   begin
+      dir:=sqrt(sqr(p.X-size*i+size/2)+sqr(p.Y-size*j+size/2)+sqr(p.z-size*y+size/2));
+
+      If (Mass[I,J,Y]>0) and (abs(dir)<500) then
+          begin
+            if (Mass[I+1,J,Y]>0) and (Mass[I-1,J,Y]>0)and
+                  (Mass[I,J+1,Y]>0) and (Mass[I,J-1,Y]>0) and
+                      (Mass[I,J,Y+1]>0) and (Mass[I,J,Y-1]>0) then
+                      begin
+                    end
+                else begin
+               DrawBox(size*i+size/2, size*j+size/2, size*y+size/2,size/2,Blocks[Mass[I,J,Y]-1]);
+          end;
+         
+      end;
+   end;
+     DrawBox(P.x,p.y,p.z,2000,Sky);
+       glBindTexture(GL_TEXTURE_2D, Ttextobj[0]);
+    glpushmatrix();
+    R3D_To_2D(ClientWidth, ClientHeight);
+
+    RenderSprite(CW/2,CH/2,25,25,0,Ttextobj[0]);
+    RenderSprite(CW/2-240,CH-50,30,30,0,Ttextobj[1]);
+    RenderSprite(CW/2-180,CH-50,30,30,0,Ttextobj[2]);
+    RenderSprite(CW/2-120,CH-50,30,30,0,Ttextobj[3]);
+    RenderSprite(CW/2-60,CH-50,30,30,0,Ttextobj[4]);
+    RenderSprite(CW/2,CH-50,30,30,0,Ttextobj[5]);
+    RenderSprite(CW/2+60,CH-50,30,30,0,Ttextobj[6]);
+    RenderSprite(CW/2+120,CH-50,30,30,0,Ttextobj[7]);
+    RenderSprite(CW/2+180,CH-50,30,30,0,Ttextobj[8]);
+    RenderSprite(CW/2+240,CH-50,30,30,0,Ttextobj[9]);
+    RenderSprite(CW/2+300,CH-50,30,30,0,Ttextobj[10]);
+    RenderSprite(CW/2-240+((MyBlock-1)*60),CH-50,35,35,0,Ttextobj[200]);
+    R2D_To_3D();
+    glpopmatrix();
+  glPopMatrix;
+
+
+glPopMatrix;
+
+R3D_To_2D(ClientWidth, ClientHeight);
+end;
+
+end.

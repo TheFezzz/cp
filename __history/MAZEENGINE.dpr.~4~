@@ -1,0 +1,17 @@
+program MAZEENGINE;
+
+uses
+  Forms,
+  GUI in 'GUI.pas' {Form1},
+  Resurce in 'Resurce.pas',
+  Command in 'Command.pas',
+  Tex in 'Tex.pas',
+  GFonts in 'GFonts.pas';
+
+{$R *.res}
+
+begin
+  Application.Initialize;
+  Application.CreateForm(TForm1, Form1);
+  Application.Run;
+end.

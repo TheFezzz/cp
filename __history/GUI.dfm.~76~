@@ -1,0 +1,45 @@
+object Form1: TForm1
+  Left = 1064
+  Top = 456
+  AlphaBlendValue = 100
+  BorderIcons = [biSystemMenu]
+  BorderStyle = bsSingle
+  Caption = 'DelphiCraft'
+  ClientHeight = 868
+  ClientWidth = 1473
+  Color = clBtnFace
+  Font.Charset = DEFAULT_CHARSET
+  Font.Color = clWindowText
+  Font.Height = -11
+  Font.Name = 'MS Sans Serif'
+  Font.Style = []
+  Position = poScreenCenter
+  OnCreate = FormCreate
+  OnPaint = FormPaint
+  TextHeight = 13
+  object Music: TMediaPlayer
+    Left = 8
+    Top = 56
+    Width = 29
+    Height = 30
+    VisibleButtons = [btPlay]
+    DoubleBuffered = True
+    FileName = 'D:\'#1056#1072#1073#1086#1090#1099'\'#1054#1040#1080#1055#10003'\'#1050#1055'\Delphicraft '#8212' '#1082#1086#1087#1080#1103' (2)\DATA\Music.wav'
+    Visible = False
+    ParentDoubleBuffered = False
+    TabOrder = 0
+  end
+  object Timer1: TTimer
+    OnTimer = Timer1Timer
+    Left = 32
+  end
+  object DrawGrGL: TTimer
+    Interval = 1
+    OnTimer = FormPaint
+  end
+  object PhizProcess: TTimer
+    Interval = 1
+    OnTimer = PhizProcessTimer
+    Left = 64
+  end
+end
